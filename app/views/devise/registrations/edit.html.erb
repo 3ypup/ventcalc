@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "eusername" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
