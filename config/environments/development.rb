@@ -76,4 +76,16 @@ config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 #   :password => Rails.application.credentials.email_pass
 # }
 
+
+
+ActionMailer::Base.smtp_settings = {
+  
+  address:        'smtp.gmail.com', # default: localhost
+  port:           '587',                  # default: 25
+  user_name:      'uRails.application.credentials.user_name',
+  password:       'Rails.application.credentials.email_pass',
+  authentication: :login                # :plain, :login or :cram_md5
+}
+
+
 end
