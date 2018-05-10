@@ -109,7 +109,9 @@ config.action_mailer.default_url_options = { :host => 'http://80.211.25.30' }
 ActionMailer::Base.smtp_settings = {
 
 
-  tls:            true,
+  enable_starttls_auto: false,
+  openssl_verify_mode: 'none',
+  ssl:             true,
   domain:         'gmail.com',
   address:        'smtp.gmail.com', # default: localhost
   port:           '587',                  # default: 25
