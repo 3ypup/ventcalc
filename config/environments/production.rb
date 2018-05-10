@@ -105,13 +105,16 @@ ActionMailer::Base.delivery_method = :smtp
    #:user_name => Rails.application.credentials.user_name
    #:password => Rails.application.credentials.email_pass
  #}
-config.action_mailer.default_url_options = { :host => 'http://80.211.25.30' }
+
+config.action_mailer.raise_delivery_errors = true
+
+config.action_mailer.default_url_options = { :host => '80.211.25.30' }
 ActionMailer::Base.smtp_settings = {
 
 
   enable_starttls_auto: false,
   openssl_verify_mode: 'none',
-  ssl:             true,
+  #ssl:             true,
   domain:         'gmail.com',
   address:        'smtp.gmail.com', # default: localhost
   port:           '587',                  # default: 25
