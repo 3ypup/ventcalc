@@ -95,7 +95,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-#ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
 #ActionMailer::Base.smtp_settings = {
  #  :tls => true,
   # :address => "smtp.gmail.com",
