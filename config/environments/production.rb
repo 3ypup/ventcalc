@@ -112,7 +112,7 @@ config.action_mailer.default_url_options = { :host => '80.211.25.30' }
 ActionMailer::Base.smtp_settings = {
 
 
-  enable_starttls_auto: false,
+  enable_starttls_auto: true,
   openssl_verify_mode: 'none',
   #ssl:             true,
   domain:         'gmail.com',
