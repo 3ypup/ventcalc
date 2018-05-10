@@ -120,7 +120,7 @@ ActionMailer::Base.smtp_settings = {
   port:           '587',                  # default: 25
   user_name:      'Rails.application.credentials.user_name',
   password:       'Rails.application.credentials.email_pass',
-  authentication: :login                # :plain, :login or :cram_md5
+  authentication: :plain              # :plain, :login or :cram_md5
 }
 
 
