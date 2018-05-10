@@ -110,7 +110,7 @@ ActionMailer::Base.smtp_settings = {
 
 
   tls:            true,
-  domain:         'gmail.com'
+  domain:         'gmail.com',
   address:        'smtp.gmail.com', # default: localhost
   port:           '587',                  # default: 25
   user_name:      'uRails.application.credentials.user_name',
