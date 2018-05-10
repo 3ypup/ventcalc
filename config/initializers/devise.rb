@@ -11,7 +11,7 @@ Devise.setup do |config|
   # config.secret_key = '16edc953860601f90448459085a9b975bcb2d0de98c971baec99b6d9172baf83d379d34b29cba0d931a7cb72edd7ee5880f697ca7313932ce08baaf5431d0f92'
     
 
-    config.secret_key = '3bb7592445d59b721e77d9255bd43e9995b52cd25614de55c1a943b12dcc5bea0390d9060f2de9a400e8a0ce80747158487015ab92b03553556c106ad513085b'
+    config.secret_key = Rails.application.credentials.secret_key_base
 
 
   # ==> Controller configuration

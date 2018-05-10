@@ -1,4 +1,6 @@
 Rails.application.configure do
+
+  config.require_master_key = true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -61,7 +63,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "keys_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "ventcalc_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -91,4 +93,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+   :tls => true,
+   :address => "smtp.gmail.com",
+   :port => 587,
+   :domain => "gmail.com",
+   :authentication => :login,
+   :user_name => "ENV['EMAIL']",
+   :password => "ENV['EMAIL_PASSWORD']"
+ }
+
+
+ 
 end
