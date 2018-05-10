@@ -105,7 +105,7 @@ ActionMailer::Base.delivery_method = :smtp
    #:user_name => Rails.application.credentials.user_name
    #:password => Rails.application.credentials.email_pass
  #}
- 
+config.action_mailer.default_url_options = { :host => 'http://80.211.25.30' }
 ActionMailer::Base.smtp_settings = {
 
 
