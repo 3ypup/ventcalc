@@ -63,6 +63,7 @@ Rails.application.configure do
  # config.action_mailer.delivery_method = :smtp
   #config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 
+
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
    :tls => true,
@@ -70,8 +71,8 @@ ActionMailer::Base.smtp_settings = {
    :port => 587,
    :domain => "gmail.com",
    :authentication => :login,
-   :user_name => "ENV['EMAIL']",
-   :password => "ENV['EMAIL_PASSWORD']"
+   :user_name => Rails.application.credentials.user_name
+   :password => Rails.application.credentials.email_pass
  }
 
 end
