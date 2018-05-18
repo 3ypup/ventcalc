@@ -1,7 +1,17 @@
+
+
+
+
+<div class="mx-auto" style="width: 200px;">
+ 
 <% if user_signed_in? %>
-    Привет, <%= current_user.username %>!
+<div class="alert alert-success" role="alert">
+     Привет, <%= current_user.username %>!
     <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+</div>
 <% else %>
+
+<div class="alert alert-primary" role="alert">
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-    
+</div>    
 <% end %>
