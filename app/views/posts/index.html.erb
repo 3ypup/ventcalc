@@ -1,4 +1,32 @@
-<p2> Привет, <%= current_user.username %>!</p2>
+<div class="alert alert-success" role="alert">
+<p2> Привет, <%= current_user.username %>!<br/>
+ <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>
+
+</div>
 
 
-<h2> Posts </h2>
+<h2> Написать новый пост: </h2>
+<%= form_for :post, url: posts_path do |f| %> 
+
+	
+	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
+
+
+
+	<h1> <%= f.text_area  :content %> </h1>
+
+	<p3> <%= f.submit 'Yarrrr!!!' %></p3>
+ <%end%>
+
+
+<h2> Последние публикации: </h2>
+
+
+<% @posts.reverse_each do |post| %>
+
+<%= post.author %><br/>
+<%= post.content %><br/>
+<%= link_to "комментарии", post_path(post) %>
+<br/><br/>
+
+<%end%>

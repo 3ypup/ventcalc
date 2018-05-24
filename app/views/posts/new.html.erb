@@ -1,0 +1,16 @@
+<h2> Newpost </h2>
+
+
+
+<h2> Написать новый пост: </h2>
+<%= form_for :post, url: posts_path do |f| %> 
+
+	
+	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
+
+
+
+	<h1> <%= f.text_area  :content %> </h1>
+
+	<p3> <%= f.submit 'Yarrrr!!!' %></p3>
+ <%end%>
