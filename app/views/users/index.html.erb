@@ -7,8 +7,12 @@
 <% if user_signed_in? %>
 <div class="alert alert-success" role="alert">
      Привет, <%= current_user.username %>!
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %><br/><br/>
+    <%= link_to 'Открыть', posts_path %>
 </div>
+
+
+
 <% else %>
 
 <div class="alert alert-primary" role="alert">
