@@ -1,21 +1,17 @@
+
+<div class="alert alert-secondary" role="alert">
 <div class="alert alert-success" role="alert">
 <p2> Привет, <%= current_user.username %>!<br/>
  <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>
 
 </div>
-
-
+<div class="mx-auto" style="width: 800px;">
+<div class="alert alert-light" role="alert">
 <h2> Написать новый пост: </h2>
 <%= form_for :post, url: posts_path do |f| %> 
-
-	
 	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
-
-
-
-	<h1> <%= f.text_area  :content %> </h1>
-
-	<p3> <%= f.submit 'Yarrrr!!!' %></p3>
+	<p2> <%= f.text_area  :content, size: "80x10" %>  </p2>
+	<button type="button" class="btn btn-outline-dark">  <% f.submit %> Запостить!</button>
  <%end%>
 
 
@@ -26,7 +22,16 @@
 
 <%= post.author %><br/>
 <%= post.content %><br/>
-<%= link_to "комментарии", post_path(post) %>
+<%= link_to "комментарии", post_path(post) %><br/>
+<p2> 
+<%= link_to "редактировать", edit_post_path(post)  %> |
+<%= link_to "удалить", post_path(post), method: :delete, data: {confirm: "Точно удалить?"} %>  <br/>
+
+
+</p2>
 <br/><br/>
 
 <%end%>
+</div>
+</div>
+</div>
