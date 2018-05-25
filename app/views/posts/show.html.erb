@@ -1,1 +1,37 @@
+
+<div class="alert alert-dark" role="alert">
+
+<div class="alert alert-secondary" role="alert">
+<p2> Привет, <%= current_user.username %>!<br/>
+ <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/>
+ <%= link_to 'Все посты', posts_path %><br/>
+</div>
+<div class="mx-auto" style="width: 800px;">
+<div class="alert alert-light" role="alert">
 <p2> <%= @post.content %></p2>
+
+
+
+<%= form_for ([@post, @post.comments.build]) do |f| %> 
+
+	<br/>
+	<h1> <%= f.hidden_field  :author,  value:  current_user.username %> </h1>
+	<p2> <%= f.text_area :text, size: "60x3"  %> </p2><br/>
+	<input class="b-comments_reply_block_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
+
+<%end%>
+
+<% @post.comments.reverse_each do |comment| %>
+
+<span class="badge badge-success">
+<%= comment.author %>
+</span>
+<span class="badge badge-primary">
+<%= comment.text %>
+</span>
+<br/>
+
+<%end%>
+</div>
+</div>
+</div>

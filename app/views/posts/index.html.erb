@@ -1,6 +1,8 @@
 
+<div class="alert alert-dark" role="alert">
+
 <div class="alert alert-secondary" role="alert">
-<div class="alert alert-success" role="alert">
+
 <p2> Привет, <%= current_user.username %>!<br/>
  <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>
 
@@ -11,7 +13,8 @@
 <%= form_for :post, url: posts_path do |f| %> 
 	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
 	<p2> <%= f.text_area  :content, size: "80x10" %>  </p2>
-	<button type="button" class="btn btn-outline-dark">  <% f.submit %> Запостить!</button>
+	
+	<input id="js-new_post_submit" class="b-new_post_miniform_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif" style="width: 100px" >
  <%end%>
 
 
@@ -24,8 +27,8 @@
 <%= post.content %><br/>
 <%= link_to "комментарии", post_path(post) %><br/>
 <p2> 
-<%= link_to "редактировать", edit_post_path(post)  %> |
-<%= link_to "удалить", post_path(post), method: :delete, data: {confirm: "Точно удалить?"} %>  <br/>
+<!--<%= link_to "редактировать", edit_post_path(post)  %> |
+<%= link_to "удалить", post_path(post), method: :delete, data: {confirm: "Точно удалить?"} %>  <br/>-->
 
 
 </p2>
