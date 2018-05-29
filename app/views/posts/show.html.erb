@@ -2,14 +2,17 @@
 <div class="alert alert-dark" role="alert">
 
 <div class="alert alert-secondary" role="alert">
+
 <p2> Привет, <%= current_user.username %>!<br/>
  <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/>
  <%= link_to 'Все посты', posts_path %><br/>
 </div>
 <div class="mx-auto" style="width: 800px;">
+
 <div class="alert alert-light" role="alert">
 <p2> <%= @post.content %></p2>
-
+</div>
+<br/>
 
 
 <%= form_for ([@post, @post.comments.build]) do |f| %> 
@@ -21,17 +24,45 @@
 
 <%end%>
 
-<% @post.comments.reverse_each do |comment| %>
+</div>
 
-<span class="badge badge-success">
-<%= comment.author %>
-</span>
-<span class="badge badge-primary">
-<%= comment.text %>
-</span>
-<br/>
 
-<%end%>
+
+
+
+
+<div class="mx-auto" style="width: 800px;">
+
+<div class="container">
+	<% @post.comments.reverse_each do |comment| %>
+  <div class="row">
+
+    <div class="col-sm-2">
+    	<div class="alert alert-success" role="alert">
+      <%= comment.author %>
+      	</div>
+    </div>
+    <div class="col-sm-10">
+    	<div class="alert alert-light" role="alert">
+      <%= comment.text %>
+  </div>
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+  <%end%>
+</div>
+</div>
+
+
+
+
 </div>
 </div>
 </div>
+</div>
+
+
+
+
