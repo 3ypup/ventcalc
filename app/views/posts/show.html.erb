@@ -35,8 +35,8 @@
 
 <div class="container">
 	<% @post.comments.reverse_each do |comment| %>
+  <%if comment.text !=nil %>
   <div class="row">
-
     <div class="col-sm-2">
     	<div class="alert alert-success" role="alert">
       <%= comment.author %>
@@ -51,6 +51,7 @@
       
     </div>
   </div>
+  <%end%>
   <%end%>
 </div>
 </div>
