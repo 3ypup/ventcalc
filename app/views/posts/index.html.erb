@@ -24,26 +24,28 @@
 </div>
 
 
+<div class="mx-auto" style="width: 800px;">
+<div class="container">
+<div class="col-md-12">
 
-
-
-<% @posts.reverse_each do |post| %>
+  <% @posts.reverse_each do |post| %>
 <div class="alert alert-light" role="alert">
+    <h1>Title</h1>
+    <p><%= post.content %></p>
+    <div>
+<span class="badge">Posted <%= post.created_at%></span><div class="pull-right"><span class="label label-default"><%= post.author %></span> 
+  <span class="label label-primary"><%= link_to "Комментарии", post_path(post)%></span>
+<!--<span class="label label-success">blog</span>
+<span class="label label-info">personal</span>
+<span class="label label-warning">Warning</span>
+<span class="label label-danger">Danger</span>--></div> 
+</div>       
 
-
-<%= post.content %><br/>
-<p1> Написал <%= post.author %>. </p1>
-<%= link_to "Посмотреть комментарии", post_path(post) %><br/>
-<p2> 
-<!--<%= link_to "редактировать", edit_post_path(post)  %> |
-<%= link_to "удалить", post_path(post), method: :delete, data: {confirm: "Точно удалить?"} %>  <br/>-->
-
-
-</p2>
 </div>
-<br/>
-
 <%end%>
+</div>
+</div>
+
 </div>
 </div>
 </div>
