@@ -1,16 +1,21 @@
-<h2> Newpost </h2>
 
 
 
-<h2> Написать новый пост: </h2>
+<div id="post">
+	<div class="mx-auto" style="width: 1000px;">
+<t4> Написать новый пост: </t4>
 <%= form_for :post, url: posts_path do |f| %> 
 
 	
 	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
 
+	<t2> <%= f.label :Название_игры %> </t2>
+	<h1> <%= f.text_area  :title, size: "10x1"  %> </h1>
 
-
-	<h1> <%= f.text_area  :content %> </h1>
+	<t2> <%= f.label :Описание_игры %> </t2>
+	<h1> <%= f.text_area  :content, size: "30x3" %> </h1>
 
 	<p3> <%= f.submit 'Yarrrr!!!' %></p3>
  <%end%>
+</div>
+</div>

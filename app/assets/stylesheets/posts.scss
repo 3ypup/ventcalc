@@ -1,3 +1,85 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.background {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-image: url(http://lookw.ru/1/705/1402267367-0181103-www.nevseoboi.com.ua.jpg);
+    	background-position: center center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+	}
+
+img {
+	  filter: gray; /* IE6-9 */
+	  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+	    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    margin-bottom:20px;
+	}
+
+	img:hover {
+	  filter: none; /* IE6-9 */
+	  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+	 
+	}
+
+
+#welcome {
+		position: fixed;
+		top: 0px;
+		left: 100px;
+		width: 100%;
+		height: 100%;
+		
+    	background-repeat: no-repeat;
+    	
+	}
+
+#post {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		text-color: rgb (255.255.255.0)
+
+	}
+
+
+t4 {
+	font-size: 40px;
+	color: white;
+}
+
+t2 {
+	font-size: 20px;
+	color: white;
+}
+
+
+games {
+	
+
+	position: relative;
+	top: 200px;
+	left: 70px;
+
+}
+
+
+tan {   font-family: 'Tangerine';
+        font-size: 58px;  text-shadow: 4px 4px 4px #aaa; color: white; }
+.ultra {   font-family: 'Ultra';
+        font-size: 48px;  text-shadow: 2px 2px 4px #aaa; }
+.ribeye {   font-family: 'Ribeye';
+        font-size: 48px;  text-shadow: 2px 2px 4px #aaa; }
+.lobster {   font-family: 'Lobster';
+        font-size: 52px;  text-shadow: -2px -2px 5px #aaa; }
+.helvet {   font-family: 'Helvetica';
+        font-size: 48px;  text-shadow: -2px -2px 5px #aaa; }

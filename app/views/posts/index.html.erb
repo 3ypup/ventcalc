@@ -1,51 +1,62 @@
 
-<div class="alert alert-dark" role="alert">
-
-<div class="alert alert-secondary" role="alert">
-
-
-
-
-<p2> Привет, <%= current_user.username %>!<br/>
- <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>
-
-</div>
-<div class="mx-auto" style="width: 800px;">
-<div class="alert alert-light" role="alert">
-<h2> Написать новый пост: </h2>
-<%= form_for :post, url: posts_path do |f| %> 
-	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
-	<p2> <%= f.text_area  :content, size: "80x10" %>  </p2>
-	
-	<input id="js-new_post_submit" class="b-new_post_miniform_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif" style="width: 100px" >
-
-	
- <%end%>
+<div id="welcome">
+<tan><%=current_user.username%></tan><br/>
 </div>
 
+<!--<p2> Привет, <%= current_user.username %>!<br/>
+ <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>-->
 
-<div class="mx-auto" style="width: 800px;">
+
+<games>    
 <div class="container">
-<div class="col-md-12">
+  
+  <div class="row">
+      <% @posts.reverse_each do |post| %>
+                <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive">
+                    
+                        <h1 class="title">
+                          <tan><%=post.title.capitalize%></tan>
+                          
+                        </h1>
+                       
+                          <img class="img-responsive" src="http://geekandsundry.com/wp-content/uploads/2016/08/Harmonquest-1.jpg" >
+                          <div  class="alert alert-secondary" role="alert">
+                         <p>
+                            <strong>Winning will make you famous.</strong><br/>
+                            <strong>Losing means certain death.</strong>
+                          </p>
 
-  <% @posts.reverse_each do |post| %>
-<div class="alert alert-light" role="alert">
-    <h1>Title</h1>
-    <p><%= post.content %></p>
-    <div>
-<span class="badge">Posted <%= post.created_at%></span><div class="pull-right"><span class="label label-default"><%= post.author %></span> 
-  <span class="label label-primary"><%= link_to "Комментарии", post_path(post)%></span>
-<!--<span class="label label-success">blog</span>
-<span class="label label-info">personal</span>
-<span class="label label-warning">Warning</span>
-<span class="label label-danger">Danger</span>--></div> 
-</div>       
+                          <p2><%=post.content%></p2>
+                          <p>When sixteen-year-old Katniss Everdeen steps forward to take her sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.</p>
 
-</div>
-<%end%>
-</div>
+                        <div class="info">
+                          <a> <span class="glyphicon glyphicon-comment"></span> <%= link_to "В игру", post_url(post)%> </a>
+                          <a ><%=post.created_at%> </a>
+                          <div class="clearfix"></div>
+                        </div>
+
+
+                        </div>
+                          
+                          
+
+              </div>
+      <%end%>
+  </div>
 </div>
 
-</div>
-</div>
-</div>
+</games>
+
+                    
+                      
+
+
+                    
+           
+       
+
+
+
+
+
+
