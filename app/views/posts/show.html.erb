@@ -6,22 +6,49 @@
         <div class="row">
              <div class="col-md-12">
               <div class="alert alert-secondary" role="alert">
-                 <div class="row hidden-md hidden-lg"><h1 class="text-center" ><%= @post.title %></h1></div>
+                 <div class="row hidden-md hidden-lg"><h1 class="text-center" ><tanb><%= @post.title %></tanb></h1></div>
                      
                  <div class="pull-left col-md-4 col-xs-12 thumb-contenido"><img class="center-block img-responsive" src='http://geekandsundry.com/wp-content/uploads/2016/08/Harmonquest-1.jpg' /></div>
                  <div class="">
-                     <h1  class="hidden-xs hidden-sm"><%= @post.title %></h1>
+                     <h1  class="hidden-xs hidden-sm"><tanb><%= @post.title.capitalize %></tanb></h1>
                      <hr>
                      <small>10 - 04 -2017</small><br>
                      <small><strong><%= @post.author %></strong></small>
                      <hr>
                      <p class="text-justify"><%= @post.content %></p></div>
+                     <p2><%=link_to "На главную", posts_path %></p2>
              </div>
             </div> 
         </div>
     </div>
 </div>
 
+<div style="padding: 20px 20% 0 20%; background-color: mediumorchid;">
+<div class="chat_list">
+  <ul class="list-group">
+    <li class="list-group-item">
+       <p4> <%=current_user.username%> </p4>
+            <div class="pull-left hidden-xs">
+              
+                    <img class="img"  src="https://us.v-cdn.net/5019558/uploads/userpics/753/nZ60314DHZQ4A.jpg"> 
+                                  
+                
+                <div>
+
+                  <%= form_for ([@post, @post.comments.build]) do |f| %> 
+                    <br/>
+                    <h1> <%= f.hidden_field  :author,  value:  current_user.username %> </h1>
+                    <p2> <%= f.text_area :text, size: "80"  %> </p2><br/>
+                    <input class="b-comments_reply_block_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
+                  </div>
+            </div>
+    </li>
+
+</ul>
+<%end%>
+
+</div>
+</div>
 
 
 
@@ -31,6 +58,7 @@
 <div style="padding: 20px 20% 0 20%; background-color: mediumorchid;">
 <div class="chat_list">
   <% @post.comments.reverse_each do |comment| %>
+  <%if comment.text !=nil %>
     <ul class="list-group">
         <li class="list-group-item">
             <div class="pull-left hidden-xs">
@@ -48,6 +76,8 @@
         </li>
     </ul>
     <%end%>
+    <%end%>
+
 </div>
 </div>
 
