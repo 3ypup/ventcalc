@@ -90,14 +90,33 @@ tan {   font-family: 'Tangerine';
  //chat
 
 
- body { padding-top:30px; }
-.widget .panel-body { padding:0px; }
-.widget .list-group { margin-bottom: 0; }
-.widget .panel-title { display:inline }
-.widget .label-info { float: right; }
-.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
-.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
-.widget .mic-info { color: #666666;font-size: 11px; }
-.widget .action { margin-top:5px; }
-.widget .comment-text { font-size: 12px; }
-.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+body {
+    font-size: 13px;
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+.chat_list .list-group-item {
+	position: relative;
+	top: 400px;
+	padding: 5px 4px;
+    min-height: 50px;
+
+}
+@media (max-width: 768px) {
+    .chat_list .list-group-item {
+        min-height: inherit;
+    }
+}
+.chat_list .list-group-item-text {
+    word-wrap: break-word;
+    display: flex;
+    overflow: auto;
+}
+.chat_list .pull-left {
+    width: 55px;
+    text-align: center;
+}
