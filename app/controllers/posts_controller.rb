@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 def index
  @posts=Post.all
 
+
 end
 
 
@@ -47,7 +48,7 @@ end
  private 
 
   def post_params
-    params.require(:post).permit(:author, :content)
+    params.require(:post).permit(:author, :content, :title, :image)
   end
 
 end

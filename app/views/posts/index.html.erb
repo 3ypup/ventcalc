@@ -1,6 +1,7 @@
 
 <div id="welcome">
 <tan><%=current_user.username%></tan><br/>
+
 </div>
 
 <!--<p2> Привет, <%= current_user.username %>!<br/>
@@ -19,7 +20,7 @@
                           
                         </h1>
                        
-                          <a href=<%=post_url(post)%>><img class="img-responsive" src="http://geekandsundry.com/wp-content/uploads/2016/08/Harmonquest-1.jpg" >
+                          <a href=<%=post_url(post)%>><img class="img-responsive" src=<%=post.image%> >
                           </a>
                           <div  class="alert alert-secondary" role="alert">
                          <p>
@@ -35,8 +36,6 @@
                           <a ><%=post.created_at%> </a>
                           <div class="clearfix"></div>
                         </div>
-
-
                         </div>
                           
                           

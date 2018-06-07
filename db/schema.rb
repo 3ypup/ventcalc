@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2018_05_25_122039) do
   create_table "posts", force: :cascade do |t|
     t.text "author"
     t.text "content"
+    t.text "title"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
