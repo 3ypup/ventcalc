@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_122039) do
+ActiveRecord::Schema.define(version: 2018_06_08_102618) do
+
+  create_table "chars", force: :cascade do |t|
+    t.string "user"
+    t.string "charname"
+    t.integer "power"
+    t.string "uniname"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_chars_on_post_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "author"

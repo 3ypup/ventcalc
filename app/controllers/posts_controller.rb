@@ -27,6 +27,11 @@ def show
 
 
   @post = Post.find(params[:id])
+  @chars = @post.chars.where(user:[current_user.username])
+  if @chars.count > 0
+  @char = @chars.first
+  end
+
   
 
 

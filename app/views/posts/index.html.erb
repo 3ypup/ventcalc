@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
 <div id="welcome">
 <tan><%=current_user.username%></tan><br/>
-<a href = "posts/new"><h2>Новая игра!<h2></a> 
+<a href = <%=new_post_url%>><h2>Новая игра!<h2></a> 
 
 </div>
 
