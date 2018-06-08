@@ -16,7 +16,7 @@
   
   <div class="row">
       <% @posts.reverse_each do |post| %>
-                <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive">
+                <div class="col-md-3 col-sm-4 col-xs-6"><imga class="img-responsive">
                     
                         <h1 class="title">
                           <tan><%=post.title.capitalize%></tan>
@@ -26,10 +26,7 @@
                           <a href=<%=post_url(post)%>><img class="img-responsive" src=<%=post.image%> >
                           </a>
                           <div  class="alert alert-secondary" role="alert">
-                         <p>
-                            <strong>Winning will make you famous.</strong><br/>
-                            <strong>Losing means certain death.</strong>
-                          </p>
+
 
                           <p2><%=post.content%></p2>
                        

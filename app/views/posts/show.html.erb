@@ -12,11 +12,13 @@
                  <div class="">
                      <h1  class="hidden-xs hidden-sm"><tanb><%= @post.title.capitalize %></tanb></h1>
                      <hr>
-                     <small>10 - 04 -2017</small><br>
-                     <small><strong><%= @post.author %></strong></small>
-                     <hr>
                      <p class="text-justify"><%= @post.content %></p></div>
-                     <p2><%=link_to "На главную", posts_path %></p2>
+                     
+                     <hr>
+                     <small><%=@post.created_at%></small><br>
+                     <small><strong><%= @post.author %></strong></small>
+                     <small><strong><%=link_to "На главную", posts_path %></strong></small>
+
              </div>
             </div> 
         </div>

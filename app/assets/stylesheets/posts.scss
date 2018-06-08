@@ -14,7 +14,7 @@
     	background-size: cover;
 	}
 
-img {
+imga {
 	  filter: gray; /* IE6-9 */
 	  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 	    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
@@ -23,11 +23,25 @@ img {
 	    margin-bottom:20px;
 	}
 
-	img:hover {
+	imga:hover {
 	  filter: none; /* IE6-9 */
 	  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
 	 
 	}
+
+
+img {
+	  filter: none; /* IE6-9 */
+	  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+	  -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    margin-bottom:20px;
+	}
+
+	
+
+	
 
 
 #welcome {
@@ -131,3 +145,16 @@ body {
     margin-left: 0px;
     padding-left: 0px;
 }
+
+
+imgs {	 
+	    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+	    margin-bottom:20px;
+	}
+
+	
+	//image
+
+
