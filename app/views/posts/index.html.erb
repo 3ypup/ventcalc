@@ -1,4 +1,6 @@
 
+
+<% if user_signed_in? %>
 <div id="welcome">
 <tan><%=current_user.username%></tan><br/>
 <a href = "posts/new"><h2>Новая игра!<h2></a> 
@@ -48,7 +50,12 @@
 
 </games>
 
-                    
+  <% else %>
+
+<div class="alert alert-primary" role="alert">
+    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+</div>    
+<% end %>                  
                       
 
 

@@ -8,7 +8,7 @@ resources :posts do
 end
 
 
-get '/' => "users#index"
+get '/' => "posts#index"
 
 
 
