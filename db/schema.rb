@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_06_08_102618) do
     t.string "charname"
     t.integer "power"
     t.string "uniname"
+    t.string "charimg"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

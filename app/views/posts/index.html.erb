@@ -1,12 +1,15 @@
 
 
 <% if user_signed_in? %>
+<div class="mx-auto" style="width: 800px;">
 <div id="welcome">
-<tan><%=current_user.username%></tan><br/>
-<a href = <%=new_post_url%>><h2>Новая игра!<h2></a> 
-
+        <t2><%=current_user.username%></t2>
+        
+        <a href = <%=%>><t2>Мои игры</t2></a>
+        <a href = <%=%>><t2>Профиль</t2></a>
+        <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><hr/><br/>
 </div>
-
+</div>
 <!--<p2> Привет, <%= current_user.username %>!<br/>
  <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p2><br/><br/>-->
 
@@ -16,10 +19,14 @@
   
   <div class="row">
       <% @posts.reverse_each do |post| %>
-                <div class="col-md-3 col-sm-4 col-xs-6"><imga class="img-responsive">
+
+                <div style="left: 100px" class="col-md-3 col-sm-4 col-xs-10">
+                 
+                  <imga class="img-responsive">
+                     
                     
                         <h1 class="title">
-                          <tan><%=post.title.capitalize%></tan>
+                          <tw><%=post.title.capitalize%></tw>
                           
                         </h1>
                        
@@ -34,19 +41,60 @@
                         <div class="info">
                           <a> <span class="glyphicon glyphicon-comment"></span> <%= link_to "В игру", post_url(post)%> </a>
                           <a ><%=post.created_at%> </a>
+                          <a >Персонажей в игре: <%=post.chars.size%> </a>
                           <div class="clearfix"></div>
                         </div>
                         </div>
                           
-                          
+                        
+                  </imga>
 
               </div>
       <%end%>
-  </div>
+
+  
+  <div class="row">
+     
+
+                <div style="left: 100px"  class="col-md-5 col-sm-4 col-xs-10">
+                 
+                  <imga class="img-responsive">
+                     
+                    
+                        <h1 class="title">
+                          <a href=<%=new_post_url%>><tw> Новая игра</tw>
+                          
+                        </h1>
+                       
+                          <a href=<%=new_post_url%>><img class="img-responsive" src="/img/newgame.jpg"  >
+                          </a>
+                          <div  class="alert alert-secondary" role="alert">
+
+
+                          <p2>Создайте новый мир и пригласите в него игроков</p2>
+                       
+
+                          <div class="info">
+                            <a> <span class="glyphicon glyphicon-comment"></span> 
+                        
+                        
+                            <div class="clearfix"></div>
+                          </div>
+                        
+                          
+                        
+                  </imga>
+
+              
+      
+        
+
+ 
 </div>
 
-</games>
 
+
+</games>
   <% else %>
 
 <div class="alert alert-primary" role="alert">

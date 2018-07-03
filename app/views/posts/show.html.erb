@@ -6,11 +6,11 @@
         <div class="row">
              <div class="col-md-12">
               <div class="alert alert-secondary" role="alert">
-                 <div class="row hidden-md hidden-lg"><h1 class="text-center" ><tanb><%= @post.title %></tanb></h1></div>
+                 <div class="row hidden-md hidden-lg"><h1 class="text-center" ><h2><%= @post.title %></h2></h1></div>
                      
                  <div class="pull-left col-md-4 col-xs-12 thumb-contenido"><img class="center-block img-responsive" src=<%=@post.image%> /></div>
                  <div class="">
-                     <h1  class="hidden-xs hidden-sm"><tanb><%= @post.title.capitalize %></tanb></h1>
+                     <h1  class="hidden-xs hidden-sm"><h2><%= @post.title.capitalize %></h2></h1>
                      <hr>
                      <p class="text-justify"><%= @post.content %></p></div>
                      
@@ -35,10 +35,11 @@
 <div class="chat_list">
   <ul class="list-group">
     <li class="list-group-item">
-       <p4> <%=current_user.username%> </p4>
+       <p4> <%=current_user.username%>,  </p4>
+       <p4> <%=@char.charname%> </p4><br/>
             <div class="pull-left hidden-xs">
               
-                    <img class="img"  src="https://us.v-cdn.net/5019558/uploads/userpics/753/nZ60314DHZQ4A.jpg"> 
+                    <img style="width: 100px" class="img"  src=<%=@char.charimg%>> 
                      <div>
 
                   <%= form_for ([@post, @post.comments.build]) do |f| %> 
@@ -49,28 +50,12 @@
                   </div>
                   <%end%>
 
-
-
-                     <p4> <%=current_user.username%> </p4><br/>
-                     <p4> <%=@char.charname%> </p4><br/>
-                     <p4> <%=@char.power%> </p4>
-                    <div class="pull-left hidden-xs">
-              
-                    <img class="img"  src="https://us.v-cdn.net/5019558/uploads/userpics/753/nZ60314DHZQ4A.jpg"> 
-                                  
-
-
-
-                  <%= form_for ([@post, @post.comments.build]) do |f| %> 
-                    <br/>
-                    <h1> <%= f.hidden_field  :author,  value:  current_user.username %> </h1>
-                    <p2> <%= f.text_area :text, size: "80"  %> </p2><br/>
-                    <input class="b-comments_reply_block_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
+               
                   </div>
 
 
   
-<%end%>
+
 
                   </div>
           </div>
@@ -92,19 +77,26 @@
   <%if comment.text !=nil %>
     <ul class="list-group">
         <li class="list-group-item">
+          <p4> <%=@char.charname%> </p4><br/>
             <div class="pull-left hidden-xs">
                 <div>
-                    <img class="img-circle"  src="https://us.v-cdn.net/5019558/uploads/userpics/753/nZ60314DHZQ4A.jpg">                    
-                </div>
+                    <img style="width: 100px" class="img-circle"  src=<%=@char.charimg%>>                    
+                </div><br/>
             </div>
-            <small class="pull-right text-muted"><%= comment.created_at %></small>
+            <small class="pull-right text-muted"><%= comment.created_at  %></small>
+             <small class="pull-right text-muted"><%= comment.author %>_</small>
             <div>
-                <small class="list-group-item-heading text-muted text-primary"><%= comment.author %></small>
-                <small class="list-group-item-heading text-muted text-primary"><%=@char.charname%></small>
-                <p class="list-group-item-text">
-                    <%= comment.text %>
-                </p>
+              
+                <small class="list-group-item-heading text-muted text-primary"><%=
+                @charc.where(user:(comment.author)).first.charname%></small>
+                
             </div>
+        </li>
+        <li class="list-group-item">
+          <p class="list-group-item-text">
+                 <%= comment.text %>
+                </p>
+
         </li>
     </ul>
     <%end%>
@@ -134,6 +126,8 @@
                   <%= f.text_field :charname, size: "20"  %>
                   <%= f.label :Сила_персонажа %>
                   <%= f.text_field :power %>
+                  <%= f.label :Добавить_изображение %></t2>
+                  <%= f.file_field :charimg %></h1>
                   <%= f.submit %>
                   <%end%>
                   <hr/>

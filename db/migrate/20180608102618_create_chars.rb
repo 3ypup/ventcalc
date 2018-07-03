@@ -5,6 +5,7 @@ class CreateChars < ActiveRecord::Migration[5.2]
       t.string :charname
       t.integer :power
       t.string :uniname
+      t.string :charimg
 
 
       t.references :post, foreign_key: true

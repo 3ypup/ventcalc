@@ -20,7 +20,8 @@ imga {
 	    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
 	    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
 	    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-	    margin-bottom:20px;
+	    margin-bottom:50px;
+	    width: 80%;
 	}
 
 	imga:hover {
@@ -39,19 +40,12 @@ img {
 	    margin-bottom:20px;
 	}
 
-	
-
-	
-
-
 #welcome {
-		position: fixed;
-		top: 0px;
-		left: 100px;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		
-    	background-repeat: no-repeat;
+    	
     	
 	}
 
@@ -61,6 +55,7 @@ img {
 		left: 0px;
 		width: 100%;
 		height: 100%;
+		
 		text-color: rgb (255.255.255.0)
 
 	}
@@ -76,13 +71,12 @@ t2 {
 	color: white;
 }
 
-
 games {
 	
 
-	position: relative;
+	position: absolute;
 	top: 200px;
-	left: 70px;
+	left: 0px;
 
 }
 
@@ -100,6 +94,41 @@ tan {   font-family: 'Tangerine';
 
 tanb {   font-family: 'Tangerine';
         font-size: 58px;  text-shadow: 4px 4px 4px #aaa; color: black; }
+
+.col-md-3 {
+text-align:center;margin-bottom:5px
+}
+.col-md-3 i {
+width:100%;float:left;font-size:44px
+}
+.text-shadow-code,
+.option-text-shadow {
+position:relative; padding:45px 15px 15px; margin:0 -15px 15px; background-color:#fafafa; box-shadow:inset 0 3px 6px rgba(0,0,0,.05); border-color:#e5e5e5 #eee #eee; border-style:solid; border-width:1px 0;
+}
+ .text-shadow-code:after{
+  content:"Готовый код тени"; position:absolute; top:15px; left:15px; font-size:12px; font-weight:700; color:#bbb; text-transform:uppercase; letter-spacing:1px;
+ }
+ .option-text-shadow:after{
+  content:"Настройка тени"; position:absolute; top:15px; left:15px; font-size:12px; font-weight:700; color:#bbb; text-transform:uppercase; letter-spacing:1px;
+  }
+  .text-shadow-code+pre, .option-text-shadow+fieldset {
+   margin:-15px -15px 15px; border-radius:0; border-width:0 0 1px;
+   }
+   @media (min-width:768px){
+   .text-shadow-code, .option-text-shadow{ margin-left:0; margin-right:0; background-color:#fff; border-width:1px; border-color:#ddd; border-radius:4px 4px 0 0; box-shadow:none;
+   }}
+
+@font-face {
+ font-family: 'Roboto-Italic';
+ src: local('Roboto Italic'), local('Roboto-Italic'), url('http://bootstraptema.ru/snippets/font/2016/roboto/robotoitalic.woff2') format('woff2'), url('http://bootstraptema.ru/snippets/font/2016/roboto/robotoitalic.woff') format('woff'), url('http://bootstraptema.ru/snippets/font/2016/roboto/robotoitalic.ttf') format('truetype');
+ font-weight: 400;
+ font-style: italic;
+}
+
+tw {
+	font-family: 'Roboto-Italic';
+	color: white;
+	}
 
 
  //chat
@@ -156,5 +185,4 @@ imgs {
 
 	
 	//image
-
 
