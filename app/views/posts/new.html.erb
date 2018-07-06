@@ -3,23 +3,23 @@
 
 <div id="post">
 	<div class="mx-auto" style="width: 1000px;">
-<t4> Написать новый пост: </t4>
+<t4> Создать новую игру: </t4>
 <%= form_for :post, url: posts_path do |f| %> 
 
 	
 	<h1> <%= f.hidden_field  :author, value: current_user.username %> </h1>
 
 	<t2> <%= f.label :Название_игры %> </t2>
-	<h1> <%= f.text_area  :title, size: "10x1"  %> </h1>
+	<p1> <%= f.text_area  :title, size: "50x1"  %> </p1><br/>
 
 	<t2> <%= f.label :Описание_игры %> </t2>
-	<h1> <%= f.text_area  :content, size: "30x3" %> </h1>
+	<p1> <%= f.text_area  :content, size: "80x10" %> </p1><br/>
 
 
-	<t2><%= f.label :Добавить_изображение %></t2>
-    <h1><%= f.file_field :image %></h1>
+	<t2><%= f.label :Выбрать_картинку %></t2>
+    <p1><%= f.file_field :image %></p1>
 
-	<p3> <%= f.submit 'Yarrrr!!!' %></p3>
+	<p3> <%= f.submit 'Начать игру' %></p3>
  <%end%>
 </div>
 </div>
