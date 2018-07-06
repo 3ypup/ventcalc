@@ -5,7 +5,7 @@
 <div class="mx-auto" style="width: 200px;">
  
 <% if user_signed_in? %>
-<div class="alert alert-success" role="alert">
+<div class="alert alert-secondary" role="alert">
      Привет, <%= current_user.username %>!
     <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %><br/><br/>
     <%= link_to 'Открыть', posts_path %>
@@ -15,7 +15,7 @@
 
 <% else %>
 
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-secondary" role="alert">
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 </div>    
 <% end %>
