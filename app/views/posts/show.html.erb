@@ -35,6 +35,7 @@
     <div class="well"> 
         <div class="row">
           <div class="mx-auto" style="width: 825px;">
+
              <div class="col-md-8 col-sm-8 col-xs-12">
 
                 <div class="chat_list">
@@ -47,25 +48,37 @@
                             <div class="pull-left ">
                                
                                 <img style="width: 200px" class="img" src=<%=@char.charimg%>> 
+                                <p2>Здоровье:</p2><br/><br/>
+                                <div style="width: <%=@char.power*10%>px" class="alert alert-danger" role="alert">
+                                      HP: <%=@char.power%>
+                                    </div>
+                                
+                                
+                                  <div class="col-md-8 col-sm-8 col-xs-12">
 
                                   <div>
-                                    <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
-                                      PWR: <%=@char.power%>
-                                    </div>
+                                  
                               
                                     <h1><%= form_for ([@post, @post.comments.build]) do |f| %></h1>
                                       <br/>
                                       <h1> <%= f.hidden_field  :author,  value:  current_user.username %> </h1>
                                     </div>
+                                  </div>
+
+
                                     </div>
                                     <div class="col-md-4 col-sm-12 col-xs-12">
                                        
                                     </div>
+
                                    
                                   <div class="col-md-4 col-sm-4 col-xs-4">
-                                       <%= f.text_area :text, size: "40x10" %>
+                                <p2>Сделайте свой ход: </p2><br/><br/>
+                                       <%= f.text_area :text, size: "40x15"%>
+                                     
 
-                                      <br/><br/><br/><input class="b-comments_reply_block_yarrr" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
+                                      <br/><br/><br/><input class="b-comments_reply_block_yarrr, pull-left" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
+
                                       
                                     </div>
 
@@ -73,12 +86,42 @@
                                
                                       <br/>
 
+
+
                                    
                                       
                                    
                                 
                                 <%end%>
                               </div>
+
+                              
+
+                                <div class="pos-f-t">
+                                    <div class="collapse" id="navbarToggleExternalContent">
+
+
+
+                                   <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
+                                      PWR: <%=@char.power%>
+                                    </div>
+                                    <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
+                                      PWR: <%=@char.power%>
+                                    </div>
+                                     <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
+                                      PWR: <%=@char.power%>
+                                    </div>
+                                    <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
+                                      PWR: <%=@char.power%>
+                                    </div> 
+
+                                   </div>
+                                      <nav class="navbar navbar-light bg-light">
+                                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                                </nav>   
+                                </div>
                
                         </div>
                       </div>  
@@ -105,9 +148,11 @@
 
 
 <!--comments-->
+<div class = "container">
+<div class = "row">
+<div class="col-md-8 col-sm-12 col-xs-12">
+<div style="padding: 20px 0 0 15%;">
 
-<div style="padding: 20px 20% 0 20%;">
-<div class="chat_list">
   <% @post.comments.reverse_each do |comment| %>
   <%if comment.text !=nil %>
     <ul class="list-group">
@@ -137,6 +182,9 @@
     <%end%>
     <%end%>
 
+
+</div>
+</div>
 </div>
 </div>
 
