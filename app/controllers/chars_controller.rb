@@ -16,6 +16,6 @@ def create
 end
 
   def char_params
-    params.require(:char).permit(:user, :charname, :power, :uniname, :charimg)
+    params.require(:char).permit(:user, :charname, :power, :dex, :wiz, :hp, :uniname, :charimg)
   end
 end

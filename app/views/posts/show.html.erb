@@ -17,9 +17,14 @@
                      
                      <hr>
 
-                     <small><%=@post.created_at%></small><br>
+                     <small><%=@post.created_at%></small>
                      <small><strong><%= @post.author %></strong></small>
-                     <small><strong><%=link_to "На главную", posts_path %></strong></small>
+                     
+
+                    <small><strong><%=link_to "На главную", posts_path %></strong></small>
+                    
+
+
 
              </div>
             </div> 
@@ -28,31 +33,30 @@
 </div>
 
 
-<% if @chars.count >0 %>
+<% if @chars.count >0%>
+
 
 <!--Post.new.comments -->
 <div class="container">
     <div class="well"> 
         <div class="row">
           <div class="mx-auto" style="width: 825px;">
-
              <div class="col-md-8 col-sm-8 col-xs-12">
-
                 <div class="chat_list">
                   <ul class="list-group">
                     <li class="list-group-item">
-                      
-
-                       
                               <p4> <%=@char.charname%> </p4><br/>
                             <div class="pull-left ">
                                
                                 <img style="width: 200px" class="img" src=<%=@char.charimg%>> 
+
+                                <%if current_user.username != @post.author %>
+
                                 <p2>Здоровье:</p2><br/><br/>
-                                <div style="width: <%=@char.power*10%>px" class="alert alert-danger" role="alert">
-                                      HP: <%=@char.power%>
+                                <div style="width: <%=@char.hp*10%>px" class="alert alert-danger" role="alert">
+                                      HP: <%=@char.hp%>
                                     </div>
-                                
+                                <%end%>
                                 
                                   <div class="col-md-8 col-sm-8 col-xs-12">
 
@@ -73,8 +77,15 @@
 
                                    
                                   <div class="col-md-4 col-sm-4 col-xs-4">
+                                <%if current_user.username != @post.author %>
+
                                 <p2>Сделайте свой ход: </p2><br/><br/>
                                        <%= f.text_area :text, size: "40x15"%>
+                                    <%else%>
+                                       <p2>Следующий ход: </p2><br/><br/>
+                                       <%= f.text_area :text, size: "40x15"%>
+
+                                <%end%>
                                      
 
                                       <br/><br/><br/><input class="b-comments_reply_block_yarrr, pull-left" type="image" alt="YARRR!" src="/static/yarrr.gif"  style="width: 100px" >
@@ -86,34 +97,26 @@
                                
                                       <br/>
 
-
-
-                                   
-                                      
-                                   
-                                
                                 <%end%>
                               </div>
 
                               
-
+                          <%if current_user.username != @post.author %>
                                 <div class="pos-f-t">
                                     <div class="collapse" id="navbarToggleExternalContent">
 
 
 
-                                   <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
+                                   <div style="width: <%=@char.power*10%>px" class="alert alert-info" role="alert">
                                       PWR: <%=@char.power%>
                                     </div>
-                                    <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
-                                      PWR: <%=@char.power%>
+                                    <div style="width: <%=@char.dex*10%>px" class="alert alert-info" role="alert">
+                                      DEX: <%=@char.dex%>
                                     </div>
-                                     <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
-                                      PWR: <%=@char.power%>
+                                     <div style="width: <%=@char.wiz*10%>px" class="alert alert-info" role="alert">
+                                      WIZ: <%=@char.wiz%>
                                     </div>
-                                    <div style="width: <%=@char.power*10%>px" class="alert alert-success" role="alert">
-                                      PWR: <%=@char.power%>
-                                    </div> 
+
 
                                    </div>
                                       <nav class="navbar navbar-light bg-light">
@@ -122,6 +125,7 @@
                               </button>
                                 </nav>   
                                 </div>
+                                <%end%>
                
                         </div>
                       </div>  
@@ -157,6 +161,11 @@
   <%if comment.text !=nil %>
     <ul class="list-group">
         <li class="list-group-item">
+          <%if comment.author == @post.author%>
+          <p class="text-danger"><strong> МАСТЕР </strong></p>
+          <%else%>
+          <p class="text-success"><strong> ИГРОК </strong></p>
+          <%end%>
           <div><small class="list-group-item-heading text-muted text-primary"><%=
                 @charc.where(user:(comment.author)).first.charname%></small></div>
             <div class="pull-left">
@@ -193,33 +202,111 @@
 
 
 <%else%>
+<% if current_user.username != @post.author %>
+<div class="container">
+  
+  <div class="row">
+
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <div class="alert alert-secondary" role="alert">
+                <%@charpower_start=rand(10)%>
+                <%@chardex_start=rand(10)%>
+                <%@charwiz_start=rand(10)%>
+                <%@charhp_start = @charpower_start+@chardex_start-@charwiz_start%>
+
+                    <div>
+                      <%= form_for ([@post, @post.chars.build]) do |f| %> 
+                      <%= f.hidden_field  :user,  value:  current_user.username %>
+                      <%= f.hidden_field  :uniname,  value:  current_user.username+@post.id.to_s %>
+                      <%= f.label :Имя_персонажа %>
+                      <%= f.text_field :charname, size: "20"  %><hr/>
+                      <%= f.label :Сила %>
+                     
+                      <n/><%=@charpower_start%><br/>
+                     <%= f.hidden_field  :power,  value:  @charpower_start %>
+
+                      <%= f.label :Ловкость %>
+                      <%=@chardex_start%><br/>
+                      <%= f.hidden_field  :dex,  value:  @chardex_start %>
+                    
+                      <%= f.label :мудрость %>
+                      <%= f.hidden_field  :wiz,  value:  @charwiz_start %>
+                      <%=@charwiz_start%><br/>
+
+
+                      <%= f.label :Здоровье %>
+                      <%= f.hidden_field  :hp,  value:  @charhp_start %>
+                      <%=@charwiz_start%><br/>
+                       
+                   
+
+
+                      <%= f.label :Аватар %></t2>
+                      <%= f.file_field :charimg%><br/></h1>
+                      <%= f.submit "Создать персонажа" %>
+                      <%end%>
+                      <hr/>
+                    </div>
+
+              </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+         
+          <br/><br/><br/><br/><br/>
+
+        </div>
+
+  </div>
+</div>  
+
+<%else%> 
+
+<!-- Создание ДМ -->
 
 <div class="container">
   
   <div class="row">
 
-    <div class="col-md-3 col-sm-4 col-xs-6">
-      <div class="alert alert-secondary" role="alert">
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <div class="alert alert-secondary" role="alert">
+                
+                
 
-                <div>
-                  <%= form_for ([@post, @post.chars.build]) do |f| %> 
-                  <%= f.hidden_field  :user,  value:  current_user.username %>
-                  <%= f.text_field  :uniname,  value:  current_user.username+@post.id.to_s %>
-                  <%= f.label :Имя_персонажа %>
-                  <%= f.text_field :charname, size: "20"  %>
-                  <%= f.label :Сила_персонажа %>
-                  <%= f.text_field :power %>
-                  <%= f.label :Добавить_изображение %></t2>
-                  <%= f.file_field :charimg %></h1>
-                  <%= f.submit %>
-                  <%end%>
-                  <hr/>
-                <div>
-      </div>
-    </div>
-</div>
-</div>  
-<% end %>               
+                    <div>
+                      <%= form_for ([@post, @post.chars.build]) do |f| %> 
+                      <%= f.hidden_field  :user,  value:  current_user.username %>
+                      <%= f.hidden_field  :uniname,  value:  current_user.username+@post.id.to_s %>
+                      <%= f.label :Имя_мастера %>
+                      <%= f.text_field :charname, size: "20"  %><hr/>
+                    
+                     
+                      
+                     <%= f.hidden_field  :power,  value:  10 %>
+                     <%= f.hidden_field  :dex,  value:  10 %>
+                     <%= f.hidden_field  :wiz,  value:  10 %>
+                     <%= f.hidden_field  :hp,  value:  10 %>
+             
+                      <%= f.label :Аватар %></t2>
+                      <%= f.file_field :charimg%><br/></h1>
+                      <%= f.submit "Создать мастера" %>
+                      <%end%>
+                      <hr/>
+                    </div>
+
+              </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+         
+          <br/><br/><br/><br/><br/>
+
+        </div>
+
+  </div>
+</div>               
+   
+
+<%end%>
+<%end%>               
 
 
 

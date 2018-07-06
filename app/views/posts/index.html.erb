@@ -39,10 +39,15 @@
                        
 
                         <div class="info">
-                          <a> <span class="glyphicon glyphicon-comment"></span> <%= link_to "В игру", post_url(post)%> </a>
+                        
+                          
+                          <a >Персонажей в игре: <%=post.chars.size-1%> </a><br/>
+                          <a >ДМ: <%=post.author%> </a><br/>
                           <a ><%=post.created_at%> </a>
-                          <a >Персонажей в игре: <%=post.chars.size%> </a>
                           <div class="clearfix"></div>
+                            <small> <span class="glyphicon glyphicon-comment"></span> <%= link_to "В игру", post_url(post)%></small>
+
+                          <small><%= link_to "Удалить", post_path(post.id), method: :delete, data: {confirm: "Точно удалить?"} %>  <br/></small>
                         </div>
                         </div>
                           
@@ -66,7 +71,7 @@
                           
                         </h1>
                        
-                          <a href=<%=new_post_url%>><img class="img-responsive" src="/img/newgame.jpg"  >
+                          <a href=<%=new_post_url%>><img class="img-responsive" src="/img/DND.jpg"  >
                           </a>
                           <div  class="alert alert-secondary" role="alert">
 

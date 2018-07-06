@@ -40,6 +40,13 @@ end
 def destroy
   @post = Post.find(params[:id])
   
+  @post.comments.each do |comment|
+    comment.destroy
+  end
+
+  @post.chars.each do |char|
+    char.destroy
+  end
 
   @post.destroy
 

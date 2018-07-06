@@ -4,6 +4,11 @@ class CreateChars < ActiveRecord::Migration[5.2]
       t.string :user
       t.string :charname
       t.integer :power
+      t.integer :dex
+      t.integer :wiz
+      t.integer :hp
+
+
       t.string :uniname
       t.string :charimg
 
