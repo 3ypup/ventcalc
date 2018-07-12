@@ -157,6 +157,10 @@
 <div class="col-md-8 col-sm-12 col-xs-12">
 <div style="padding: 20px 0 0 15%;">
 
+
+
+
+
   <% @post.comments.reverse_each do |comment| %>
   <%if comment.text !=nil %>
     <ul class="list-group">
@@ -165,7 +169,22 @@
           <p class="text-danger"><strong> МАСТЕР </strong></p>
           <%else%>
           <p class="text-success"><strong> ИГРОК </strong></p>
+          <%if current_user.username == @post.author%>
+          
+            <p class="text-danger">
+              <small>HP:<%=@charc.where(user:(comment.author)).first.hp%></small>
+            </p>
+            <p class="text-success">
+              <small>PWR:<%=@charc.where(user:(comment.author)).first.power%></small>
+              <small>DEX:<%=@charc.where(user:(comment.author)).first.dex%></small>
+              <small>WIZ:<%=@charc.where(user:(comment.author)).first.wiz%></small>
+             </p>
+
+          
           <%end%>
+          <%end%>
+
+          
           <div><small class="list-group-item-heading text-muted text-primary"><%=
                 @charc.where(user:(comment.author)).first.charname%></small></div>
             <div class="pull-left">
@@ -215,16 +234,6 @@
 
 
 <input style ="width: 500px" type = "hidden" id = "orders_input" class = "text"/>
-                  
-                
-                
-
-
-
-
-
-
-                
 
                     <div>
                       <%= form_for ([@post, @post.chars.build]) do |f| %> 
@@ -232,13 +241,7 @@
                       <%= f.hidden_field  :uniname,  value:  current_user.username+@post.id.to_s %>
                       <%= f.label :Имя_персонажа %>
                       <%= f.text_field :charname, size: "20"  %><hr/>
-                     
-                     
-                      
-
-
-                      
-
+    
                        <button  onclick="stats_start()"  style ="font-size: 12px"  type="button" class="btn btn-danger" >
                       start</button><br/>
                  
