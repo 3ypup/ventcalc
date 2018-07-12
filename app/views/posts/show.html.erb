@@ -128,6 +128,59 @@
                                 <%end%>
                
                         </div>
+
+                        <!-- Список игроков -->
+
+
+                      </div>
+                      <div class="col-md-3 col-sm-4 col-xs-4">
+                         <div class="pos-f-t">
+                            <div class="collapse" id="navbarToggleExternalContent">
+                             <%@charc.each do |char|%>
+
+                             
+
+
+                              
+
+                              <%if @post.author != char.user %>
+                              <div  class="alert alert-info" role="alert">
+                                <p class="text-success">Игрок</p><br/>
+                              <p2>Username:<%=char.user%></p2><br/>
+                              <p2>name:<%=char.charname %></p2><br/>
+                              <p2>pwr:<%=char.power %></p2><br/>
+                              <p2>dex:<%=char.dex %></p2><br/>
+                              <p2>wiz:<%=char.wiz %></p2><br/>
+                            </div>
+
+                            <%else%>
+                            <div  class="alert alert-danger" role="alert">
+                               <p class="text-danger">Мастер</p><br/>
+                            <p2>Username:<%=char.user%></p2><br/>
+                          </div>
+                              <%end%>
+                              
+
+
+                              <!--назначить проверку-->
+
+
+
+                           
+                              <%end%>
+
+                                         </div>
+                              <nav class="navbar navbar-light bg-light">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-icon"></span>
+                                          </button>
+                                      </nav>   
+                                </div>
+                              </div>  
+
+
+
+
                       </div>  
                      
                   </li>
@@ -161,7 +214,7 @@
 
 
 
-  <% @post.comments.reverse_each do |comment| %>
+  <% @post.comments.reverse_each do |comment, i| %>
   <%if comment.text !=nil %>
     <ul class="list-group">
         <li class="list-group-item">
@@ -171,6 +224,10 @@
           <p class="text-success"><strong> ИГРОК </strong></p>
           <%if current_user.username == @post.author%>
           
+
+
+
+
             <p class="text-danger">
               <small>HP:<%=@charc.where(user:(comment.author)).first.hp%></small>
             </p>
