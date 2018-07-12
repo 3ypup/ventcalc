@@ -212,11 +212,6 @@
 
 
 
-  <button  onclick="get_stat_plus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-    plus</button>
-
-    <button  onclick="get_stat_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-    minus</button>
 
 
 <input style ="width: 500px" type = "hidden" id = "orders_input" class = "text"/>
@@ -229,10 +224,7 @@
 
 
 
-                <%@charpower_start=rand(10)%>
-                <%@chardex_start=rand(10)%>
-                <%@charwiz_start=rand(10)%>
-                <%@charhp_start = @charpower_start+@chardex_start-@charwiz_start%>
+                
 
                     <div>
                       <%= form_for ([@post, @post.chars.build]) do |f| %> 
@@ -240,31 +232,59 @@
                       <%= f.hidden_field  :uniname,  value:  current_user.username+@post.id.to_s %>
                       <%= f.label :Имя_персонажа %>
                       <%= f.text_field :charname, size: "20"  %><hr/>
-                      <%= f.label :Сила %>
+                     
                      
                       
 
 
+                      <button  onclick="clear_stat()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      clear</button><br/>
 
-                      <n/><%=@charpower_start%><br/>
-
-                    <input class="alert alert-danger" name = "char[power]" id = "x"/>
-                     <%= f.hidden_field  :power,  value:  @charpower_start %>
-
-                      <%= f.label :Ловкость %>
-                      <%=@chardex_start%><br/>
-                      <%= f.hidden_field  :dex,  value:  @chardex_start %>
-                    
-                      <%= f.label :мудрость %>
-                      <%= f.hidden_field  :wiz,  value:  @charwiz_start %>
-                      <%=@charwiz_start%><br/>
+                       <button  onclick="stats_start()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      start</button><br/>
+                 
+                      
+                    <button  onclick="get_power_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      plus</button>
+                      <button  onclick="get_power_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
+                      minus</button><br/>
 
 
-                      <%= f.label :Здоровье %>
-                      <%= f.hidden_field  :hp,  value:  @charhp_start %>
-                      <%=@charwiz_start%><br/>
-                       
+                    <input   class="alert alert-danger" name = "char[power]" id = "power"/>
+
+
+
+                     <%= f.label :Сила %><br/>
+
+
+
+                    <button  onclick="get_dex_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      plus</button>
+                      <button  onclick="get_dex_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
+                      minus</button>
+                     <input  class="alert alert-danger" name = "char[dex]" id = "dex"/>
+                       <%= f.label :Ловкость %><br/>
+
+
+                    <button  onclick="get_wiz_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      plus</button>
+                      <button  onclick="get_wiz_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
+                      minus</button>                       
+                    <input class="alert alert-danger" name = "char[wiz]" id = "wiz"/>
+                      <%= f.label :Мудрость %><br/>
+
+
+
+                    <button  onclick="get_hp_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                      plus</button>
+                      <button  onclick="get_hp_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
+                      minus</button>                      
+                      <input class="alert alert-danger" name = "char[hp]" id = "hp"/>
+                       <%= f.label :Здоровье %><br/>
                    
+                   
+                    <input class="alert alert-danger" name = "statpoint" id = "statpoint"/>
+                     <%= f.label :Очки_навыков %><br/>
 
 
                       <%= f.label :Аватар %></t2>
