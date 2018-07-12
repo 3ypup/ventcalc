@@ -4,11 +4,21 @@ function stats_start(id)
 
 {
 
-window.localStorage.setItem("power", 5);
-window.localStorage.setItem("dex", 5);
-window.localStorage.setItem("wiz", 5);
-window.localStorage.setItem("hp", 5);
-window.localStorage.setItem("statpoint", 10);
+p = 5
+s = 10
+
+$("#power").val(p)
+$("#dex").val(p)
+$("#wiz").val(p)
+$("#hp").val(p)
+$("#statpoint").val(s)
+
+window.localStorage.setItem("power", p);
+window.localStorage.setItem("dex", p);
+window.localStorage.setItem("wiz", p);
+window.localStorage.setItem("hp", p);
+window.localStorage.setItem("statpoint", s);
+
 
 
 
@@ -38,6 +48,8 @@ $("#power").val(p)
 window.localStorage.setItem(key, p);
 
 statpoint_minus(id)
+
+
 }
 
 }

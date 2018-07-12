@@ -237,17 +237,16 @@
                       
 
 
-                      <button  onclick="clear_stat()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
-                      clear</button><br/>
+                      
 
-                       <button  onclick="stats_start()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
+                       <button  onclick="stats_start()"  style ="font-size: 12px"  type="button" class="btn btn-danger" >
                       start</button><br/>
                  
                       
-                    <button  onclick="get_power_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
-                      plus</button>
-                      <button  onclick="get_power_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-                      minus</button><br/>
+                    <button  onclick="get_power_plus()"  style ="font-size: 12px"  type="button" class="btn btn-success" >
+                      +</button>
+                      <button  onclick="get_power_minus()" style ="font-size: 12px"  type="button" class="btn btn-danger">
+                      -</button>
 
 
                     <input   class="alert alert-danger" name = "char[power]" id = "power"/>
@@ -258,27 +257,27 @@
 
 
 
-                    <button  onclick="get_dex_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
-                      plus</button>
-                      <button  onclick="get_dex_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-                      minus</button>
+                    <button  onclick="get_dex_plus()"  style ="font-size: 12px"  type="button" class="btn btn-success" >
+                      +</button>
+                      <button  onclick="get_dex_minus()" style ="font-size: 12px"  type="button" class="btn btn-danger">
+                      -</button>
                      <input  class="alert alert-danger" name = "char[dex]" id = "dex"/>
                        <%= f.label :Ловкость %><br/>
 
 
-                    <button  onclick="get_wiz_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
-                      plus</button>
-                      <button  onclick="get_wiz_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-                      minus</button>                       
+                    <button  onclick="get_wiz_plus()"  style ="font-size: 12px"  type="button" class="btn btn-success" >
+                      +</button>
+                      <button  onclick="get_wiz_minus()" style ="font-size: 12px"  type="button" class="btn btn-danger">
+                      -</button>                       
                     <input class="alert alert-danger" name = "char[wiz]" id = "wiz"/>
                       <%= f.label :Мудрость %><br/>
 
 
 
-                    <button  onclick="get_hp_plus()"  style ="font-size: 30px"  type="button" class="btn btn-danger" >
-                      plus</button>
-                      <button  onclick="get_hp_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
-                      minus</button>                      
+                    <button  onclick="get_hp_plus()"  style ="font-size: 12px"  type="button" class="btn btn-success" >
+                      +</button>
+                      <button  onclick="get_hp_minus()" style ="font-size: 12px"  type="button" class="btn btn-danger">
+                      -</button>                      
                       <input class="alert alert-danger" name = "char[hp]" id = "hp"/>
                        <%= f.label :Здоровье %><br/>
                    
@@ -356,6 +355,23 @@
 <%end%>               
 
 
+
+<script>
+
+
+            $(function() {
+
+
+            stats_start();
+
+
+
+  
+
+
+               });
+
+            </script>
 <!--
 <div class="alert alert-dark" role="alert">
 
