@@ -129,10 +129,11 @@
                
                         </div>
 
-                        <!-- Список игроков -->
-
-
+                                 
                       </div>
+
+                       <%if @post.author == current_user.username %>
+
                       <div class="col-md-3 col-sm-4 col-xs-4">
                          <div class="pos-f-t">
                             <div class="collapse" id="navbarToggleExternalContent">
@@ -177,7 +178,7 @@
                                       </nav>   
                                 </div>
                               </div>  
-
+                          <%end%>    
 
 
 
