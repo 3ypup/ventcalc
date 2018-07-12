@@ -1,4 +1,4 @@
-
+<% if user_signed_in? %>
 
 
 <div id="post">
@@ -23,3 +23,10 @@
  <%end%>
 </div>
 </div>
+
+<% else %>
+
+<div class="alert alert-primary" role="alert">
+    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+</div>    
+<% end %>        
