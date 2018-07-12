@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
 
 <!--PostText-->
 <div class="container">
@@ -212,7 +212,7 @@
 
 
 
-                    <button  onclick="get_stat_plus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
+  <button  onclick="get_stat_plus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
     plus</button>
 
     <button  onclick="get_stat_minus()" style ="font-size: 30px"  type="button" class="btn btn-danger">
@@ -334,13 +334,6 @@
 
 <%end%>
 <%end%>               
-<% else %>
-
-<div class="alert alert-primary" role="alert">
-    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-</div>    
-<% end %>        
-
 
 
 <!--

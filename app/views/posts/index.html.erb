@@ -1,6 +1,5 @@
 
 
-<% if user_signed_in? %>
 <div class="mx-auto" style="width: 800px;">
 <div id="welcome">
         <t2><%=current_user.username%></t2>
@@ -101,12 +100,7 @@
 
 
 </games>
-  <% else %>
-
-<div class="alert alert-primary" role="alert">
-    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-</div>    
-<% end %>                  
+             
                       
 
 
